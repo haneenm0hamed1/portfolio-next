@@ -1,0 +1,73 @@
+/* ─── Tailwind v3 directives ─────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #0a0a0c;
+  --text: #f2f1ee;
+  --accent-pink: #ff6ec7;
+  --accent-purple: #7b61ff;
+  --accent-blue: #4fd1ff;
+  --gradient: linear-gradient(90deg, #ff6ec7, #7b61ff, #4fd1ff);
+  --gradient-text: linear-gradient(90deg, #ff6ec7, #7b61ff, #4fd1ff);
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* ─── Base reset ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ─── Gradient text utility ─────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Marquee keyframes ─────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+/* ─── Float keyframes (idle 3-D shapes) ─────────────────────── */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(6deg); }
+}
+
+/* ─── Selection colour ───────────────────────────────────────── */
+::selection {
+  background: #7b61ff44;
+  color: var(--text);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #7b61ff66; border-radius: 2px; }
