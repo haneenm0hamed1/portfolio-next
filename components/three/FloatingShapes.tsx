@@ -40,28 +40,25 @@ function FloatingShape({ position, color, speed, phaseOffset, geometry, scale = 
     <mesh ref={meshRef} position={position} scale={scale} geometry={geo}>
       <meshStandardMaterial
         color={color}
-        roughness={0.15}
-        metalness={0.5}
+        roughness={0.2}
+        metalness={0.6}
         emissive={color}
-        emissiveIntensity={0.1}
+        emissiveIntensity={0.15}
       />
     </mesh>
   );
 }
 
 /**
- * Floating 3-D decorative shapes canvas — used in About and Contact sections.
- * Renders 4 distinct shapes (blob/sphere, cube, torus, icosahedron/flower-like)
- * positioned in corners of the section.
- *
- * The parent must be position:relative with a set height.
+ * Floating 3-D decorative shapes canvas — used in About section.
+ * Palette: Thunder Lime, Silver Mist, Midnight Slate, and Bauhaus Purple.
  */
 export default function FloatingShapes() {
   const shapes: ShapeProps[] = [
-    { position: [-2.8, 0.5,  0], color: "#c084fc", speed: 0.7, phaseOffset: 0,    geometry: "torus",       scale: 0.9 },
-    { position: [ 2.8, 0.4,  0], color: "#60a5fa", speed: 0.9, phaseOffset: 1.5,  geometry: "icosahedron", scale: 0.85 },
-    { position: [-2.5, -1.2, 0], color: "#f87171", speed: 0.6, phaseOffset: 0.8,  geometry: "sphere",      scale: 0.7 },
-    { position: [ 2.6, -1.0, 0], color: "#a78bfa", speed: 0.8, phaseOffset: 2.1,  geometry: "box",         scale: 0.75 },
+    { position: [-2.8, 0.5,  0], color: "#E5E12C", speed: 0.7, phaseOffset: 0,    geometry: "torus",       scale: 0.9 },
+    { position: [ 2.8, 0.4,  0], color: "#D9D9D6", speed: 0.9, phaseOffset: 1.5,  geometry: "icosahedron", scale: 0.85 },
+    { position: [-2.5, -1.2, 0], color: "#40494E", speed: 0.6, phaseOffset: 0.8,  geometry: "sphere",      scale: 0.7 },
+    { position: [ 2.6, -1.0, 0], color: "#8B5CF6", speed: 0.8, phaseOffset: 2.1,  geometry: "box",         scale: 0.75 },
   ];
 
   return (
@@ -72,8 +69,8 @@ export default function FloatingShapes() {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.6} />
-        <pointLight position={[5, 5, 5]}  intensity={1.0} color="#ff6ec7" />
-        <pointLight position={[-5, -5, 5]} intensity={0.7} color="#4fd1ff" />
+        <pointLight position={[5, 5, 5]}  intensity={1.2} color="#E5E12C" />
+        <pointLight position={[-5, -5, 5]} intensity={0.9} color="#D9D9D6" />
         <Suspense fallback={null}>
           {shapes.map((s, i) => (
             <FloatingShape key={i} {...s} />

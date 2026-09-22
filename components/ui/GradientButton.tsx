@@ -11,10 +11,7 @@ interface GradientButtonProps {
 }
 
 /**
- * Reusable gradient CTA button.
- * Background: pink → purple → blue.
- * Can act as an <a> or <button>.
- * The data-label attribute is used by GSAP to swap text on scroll.
+ * Reusable CTA button in Thunder Lime & Midnight Slate palette.
  */
 export default function GradientButton({
   label,
@@ -24,11 +21,12 @@ export default function GradientButton({
   className = "",
 }: GradientButtonProps) {
   const base =
-    "inline-block rounded-full px-8 py-3 font-semibold text-white text-sm tracking-wide transition-transform duration-300 hover:scale-105 hover:brightness-110 cursor-pointer select-none";
+    "inline-block rounded-full px-8 py-3 font-bold text-black text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:brightness-110 cursor-pointer select-none";
 
   const style: React.CSSProperties = {
-    background: "linear-gradient(90deg, #ff6ec7, #7b61ff, #4fd1ff)",
-    boxShadow: "0 0 30px rgba(123,97,255,0.35)",
+    background: "linear-gradient(135deg, #E5E12C 0%, #F4F066 100%)",
+    boxShadow: "0 0 25px rgba(229, 225, 44, 0.55), 0 8px 20px rgba(0, 0, 0, 0.4)",
+    color: "#000000",
   };
 
   if (href) {

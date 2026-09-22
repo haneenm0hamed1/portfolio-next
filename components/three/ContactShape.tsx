@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
-function PurpleBlob() {
+function ThunderBlob() {
   const meshRef = useRef<THREE.Mesh>(null!);
 
   useFrame(({ clock }) => {
@@ -19,15 +19,15 @@ function PurpleBlob() {
     <mesh ref={meshRef}>
       <sphereGeometry args={[1, 64, 64]} />
       <MeshDistortMaterial
-        color="#7b61ff"
-        emissive="#ff6ec7"
-        emissiveIntensity={0.3}
-        distort={0.5}
-        speed={2.5}
-        roughness={0.1}
-        metalness={0.3}
+        color="#E5E12C"
+        emissive="#E5E12C"
+        emissiveIntensity={0.25}
+        distort={0.45}
+        speed={2.2}
+        roughness={0.15}
+        metalness={0.4}
         transparent
-        opacity={0.85}
+        opacity={0.8}
       />
     </mesh>
   );
@@ -50,10 +50,10 @@ export default function ContactShape() {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.5} />
-        <pointLight position={[2, 2, 2]} intensity={1.5} color="#ff6ec7" />
-        <pointLight position={[-2, -2, 2]} intensity={0.8} color="#4fd1ff" />
+        <pointLight position={[2, 2, 2]} intensity={1.5} color="#E5E12C" />
+        <pointLight position={[-2, -2, 2]} intensity={0.8} color="#D9D9D6" />
         <Suspense fallback={null}>
-          <PurpleBlob />
+          <ThunderBlob />
         </Suspense>
       </Canvas>
     </div>

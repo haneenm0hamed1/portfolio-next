@@ -20,12 +20,12 @@ function GeometricAccent() {
     <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.8}>
       <Icosahedron ref={meshRef} args={[1.8, 1]} position={[0, 0, -2]}>
         <meshStandardMaterial
-          color="#7b61ff"
+          color="#E5E12C"
           wireframe
           transparent
-          opacity={0.15}
-          emissive="#7b61ff"
-          emissiveIntensity={0.2}
+          opacity={0.16}
+          emissive="#E5E12C"
+          emissiveIntensity={0.22}
         />
       </Icosahedron>
     </Float>
@@ -42,12 +42,12 @@ export default function HeroScene() {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.5} />
-        <pointLight position={[5, 5, 5]} intensity={1.5} color="#ff6ec7" />
-        <pointLight position={[-5, -5, 5]} intensity={1.0} color="#4fd1ff" />
+        <pointLight position={[5, 5, 5]} intensity={1.6} color="#E5E12C" />
+        <pointLight position={[-5, -5, 5]} intensity={1.2} color="#D9D9D6" />
 
         <Suspense fallback={null}>
           <Stars radius={40} depth={40} count={600} factor={3} fade speed={0.8} />
-          <Sparkles count={80} scale={10} size={2.5} speed={0.4} color="#7b61ff" opacity={0.6} />
+          <Sparkles count={80} scale={10} size={2.5} speed={0.4} color="#E5E12C" opacity={0.65} />
           <GeometricAccent />
         </Suspense>
       </Canvas>

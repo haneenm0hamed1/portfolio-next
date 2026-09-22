@@ -55,8 +55,8 @@ export default function Marquee({ items, speed = 20 }: MarqueeProps) {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden w-full py-4 border-t border-b bg-[#0a0a0c]/60 backdrop-blur-sm select-none"
-      style={{ borderColor: "rgba(242,241,238,0.08)" }}
+      className="relative overflow-hidden w-full py-4 border-t border-b bg-[#000000]/80 backdrop-blur-sm select-none"
+      style={{ borderColor: "rgba(64, 73, 78, 0.45)" }}
       aria-hidden="true"
     >
       <div
@@ -66,13 +66,13 @@ export default function Marquee({ items, speed = 20 }: MarqueeProps) {
         {trackItems.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-3 px-6 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[#f2f1ee]/70"
+            className="inline-flex items-center gap-3 px-6 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[#D9D9D6]/85"
             style={{ fontFamily: "var(--font-space), sans-serif" }}
           >
             {item}
             <span
-              className="inline-block w-2 h-2 rounded-full shadow-[0_0_8px_rgba(123,97,255,0.8)]"
-              style={{ background: "linear-gradient(135deg, #ff6ec7, #4fd1ff)" }}
+              className="inline-block w-2 h-2 rounded-full shadow-[0_0_10px_rgba(229,225,44,0.9)]"
+              style={{ background: "#E5E12C" }}
             />
           </span>
         ))}

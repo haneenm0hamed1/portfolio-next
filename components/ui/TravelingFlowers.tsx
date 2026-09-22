@@ -88,7 +88,7 @@ export default function TravelingFlowers() {
         className="absolute top-0 left-0 w-24 sm:w-32 md:w-44"
         style={{
           filter:
-            "drop-shadow(0 15px 30px rgba(0,0,0,0.65)) drop-shadow(0 0 35px rgba(255,110,199,0.5))",
+            "drop-shadow(0 15px 30px rgba(0,0,0,0.65)) drop-shadow(0 0 35px rgba(229,225,44,0.45))",
           willChange: "transform",
         }}
       >
@@ -107,7 +107,7 @@ export default function TravelingFlowers() {
         className="absolute top-0 left-0 w-24 sm:w-32 md:w-44"
         style={{
           filter:
-            "drop-shadow(0 15px 30px rgba(0,0,0,0.65)) drop-shadow(0 0 35px rgba(79,209,255,0.5))",
+            "drop-shadow(0 15px 30px rgba(0,0,0,0.65)) drop-shadow(0 0 35px rgba(217,217,214,0.45))",
           willChange: "transform",
         }}
       >

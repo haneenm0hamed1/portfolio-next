@@ -25,12 +25,10 @@ const BIO_LINES = [
  * - Text & Avatar Image reveal smoothly
  */
 export default function About() {
-  const sectionRef      = useRef<HTMLElement>(null!);
-  const contentRef      = useRef<HTMLDivElement>(null!);
-  const imageRef        = useRef<HTMLDivElement>(null!);
-  const shapesRef       = useRef<HTMLDivElement>(null!);
-  const flowerLeftRef   = useRef<HTMLDivElement>(null!);
-  const flowerRightRef  = useRef<HTMLDivElement>(null!);
+  const sectionRef = useRef<HTMLElement>(null!);
+  const contentRef = useRef<HTMLDivElement>(null!);
+  const imageRef   = useRef<HTMLDivElement>(null!);
+  const shapesRef  = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -44,40 +42,20 @@ export default function About() {
         },
       });
 
-      // 1. Crystal Flower drops down in top-left
-      if (flowerLeftRef.current) {
-        tl.fromTo(
-          flowerLeftRef.current,
-          { y: -160, x: -60, rotate: -35, opacity: 0, scale: 0.7 },
-          { y: 0, x: 0, rotate: 0, opacity: 1, scale: 1, ease: "power2.out", duration: 0.5 },
-          0
-        );
-      }
-
-      // 2. Hibiscus Flower drops down in bottom-right
-      if (flowerRightRef.current) {
-        tl.fromTo(
-          flowerRightRef.current,
-          { y: -160, x: 60, rotate: 35, opacity: 0, scale: 0.7 },
-          { y: 0, x: 0, rotate: 0, opacity: 1, scale: 1, ease: "power2.out", duration: 0.5 },
-          0.2
-        );
-      }
-
-      // 3. Main Avatar Image: comes down smoothly
+      // 1. Main Avatar Image: comes down smoothly
       tl.fromTo(
         imageRef.current,
         { x: 180, y: -140, rotate: 18, opacity: 0, scale: 0.7 },
         { x: 0, y: 0, rotate: -2, opacity: 1, scale: 1, ease: "power1.out", duration: 0.5 },
-        0.3
+        0
       );
 
-      // 4. Text Content: comes in smoothly
+      // 2. Text Content: comes in smoothly
       tl.fromTo(
         contentRef.current,
         { x: -160, opacity: 0 },
         { x: 0, opacity: 1, ease: "power1.out", duration: 0.5 },
-        0.4
+        0.1
       );
 
       // 3D Background Shapes: scale smoothly across the whole scroll range
@@ -113,55 +91,15 @@ export default function About() {
         <FloatingShapes />
       </div>
 
-      {/* Radial purple gradient glow accent */}
+      {/* Radial glow accent */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(circle, rgba(123,97,255,0.16) 0%, transparent 68%)",
+            "radial-gradient(circle, rgba(229, 225, 44, 0.12) 0%, rgba(64, 73, 78, 0.16) 45%, transparent 70%)",
         }}
         aria-hidden="true"
       />
-
-      {/* ── TOP-LEFT FLOWER (Blue Crystal 3D Flower) ────────────────── */}
-      <div
-        ref={flowerLeftRef}
-        aria-hidden="true"
-        className="absolute top-12 left-4 md:left-12 pointer-events-none z-[5] w-28 sm:w-36 md:w-44"
-        style={{
-          filter:
-            "drop-shadow(0 15px 30px rgba(0,0,0,0.6)) drop-shadow(0 0 35px rgba(79,209,255,0.45))",
-          willChange: "transform, opacity",
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/flower-crystal.png"
-          alt=""
-          className="w-full h-auto object-contain"
-          style={{ display: "block" }}
-        />
-      </div>
-
-      {/* ── BOTTOM-RIGHT FLOWER (Iridescent Hibiscus 3D Flower) ────── */}
-      <div
-        ref={flowerRightRef}
-        aria-hidden="true"
-        className="absolute bottom-12 right-4 md:right-12 pointer-events-none z-[5] w-28 sm:w-36 md:w-44"
-        style={{
-          filter:
-            "drop-shadow(0 15px 30px rgba(0,0,0,0.6)) drop-shadow(0 0 35px rgba(255,110,199,0.45))",
-          willChange: "transform, opacity",
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/flower-hibiscus.png"
-          alt=""
-          className="w-full h-auto object-contain"
-          style={{ display: "block" }}
-        />
-      </div>
 
       {/* Container: split 2-column responsive layout */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
@@ -201,10 +139,11 @@ export default function About() {
             <a
               href="#contact"
               id="about-cta"
-              className="inline-block rounded-full px-9 py-3.5 font-semibold text-white text-sm tracking-wide transition-transform duration-300 hover:scale-105 hover:brightness-110"
+              className="inline-block rounded-full px-9 py-3.5 font-bold text-black text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:brightness-110"
               style={{
-                background: "linear-gradient(90deg, #ff6ec7, #7b61ff, #4fd1ff)",
-                boxShadow: "0 0 36px rgba(123,97,255,0.35)",
+                background: "linear-gradient(135deg, #E5E12C 0%, #F3EF5E 100%)",
+                boxShadow: "0 0 30px rgba(229, 225, 44, 0.5), 0 8px 20px rgba(0,0,0,0.4)",
+                color: "#000000",
                 fontFamily: "var(--font-inter), sans-serif",
               }}
             >
@@ -222,7 +161,7 @@ export default function About() {
             className="relative w-full max-w-[360px] md:max-w-[420px]"
             style={{
               filter:
-                "drop-shadow(0 20px 40px rgba(0,0,0,0.75)) drop-shadow(0 0 50px rgba(123,97,255,0.35))",
+                "drop-shadow(0 20px 40px rgba(0,0,0,0.85)) drop-shadow(0 0 45px rgba(229,225,44,0.25))",
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

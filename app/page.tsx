@@ -9,9 +9,12 @@ const Navbar   = dynamic(() => import("@/components/sections/Navbar"),   { ssr: 
 const Hero     = dynamic(() => import("@/components/sections/Hero"),     { ssr: false });
 const About            = dynamic(() => import("@/components/sections/About"),            { ssr: false });
 const Projects         = dynamic(() => import("@/components/sections/Projects"),         { ssr: false });
-const Skills           = dynamic(() => import("@/components/sections/Skills"),           { ssr: false });
+const Experience       = dynamic(() => import("@/components/sections/Experience"),       { ssr: false });
 const Contact          = dynamic(() => import("@/components/sections/Contact"),          { ssr: false });
 const Footer           = dynamic(() => import("@/components/sections/Footer"),           { ssr: false });
+
+const GlobalFlowers = dynamic(() => import("@/components/ui/GlobalFlowers"), { ssr: false });
+const ScrollToTop   = dynamic(() => import("@/components/ui/ScrollToTop"),   { ssr: false });
 
 export default function Home() {
   const [loaderDone, setLoaderDone] = useState(false);
@@ -35,12 +38,17 @@ export default function Home() {
       {!loaderDone && <Loader onComplete={handleLoaderComplete} />}
 
       {/* Step 2 — Full site */}
+      {/* position:relative is crucial — GlobalFlowers is position:absolute and needs this as anchor */}
       <div
         style={{
           opacity: revealDone ? 1 : 0,
           transition: "opacity 0.5s ease",
+          position: "relative",
         }}
       >
+        {/* TravelingFlowers: absolute overlay spanning full page height */}
+        <GlobalFlowers />
+
         <Navbar />
 
         <Hero />
@@ -49,11 +57,12 @@ export default function Home() {
 
         <Projects />
 
-        <Skills />
+        <Experience />
 
         <Contact />
 
         <Footer />
+        <ScrollToTop />
       </div>
     </main>
   );
